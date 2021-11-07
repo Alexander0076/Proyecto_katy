@@ -4,7 +4,10 @@
 
 <head>
     <?php
-    require_once 'temples/head.php'
+    require_once 'templates/head.php'
+    ?>
+    <?php
+    require_once 'templates/script.php';
     ?>
 </head>
 
@@ -65,7 +68,7 @@
                                         <li class="dinone">Nuestro Contacto : <img style="margin-right: 15px;margin-left: 15px;" src="images/phone_icon.png" alt="#"><a href="#">+503 7070-7070</a></li>
                                         <li class="dinone"><img style="margin-right: 15px;" src="images/mail_icon.png" alt="#"><a href="#">Restar503@gmail.com</a></li>
 
-                                        <li class="button_user"><a class="button" href="contact.html">Registrarse</a></li>
+                                        <li class="button_user"><a class="button" href="registro.php">Registrarse</a></li>
 
                                         <!--registrar e ingresar-->
 
@@ -254,9 +257,7 @@
     </div>
     <div class="overlay"></div>
     <!-- Javascript files-->
-    <?php
-    require_once 'temples/script.php'
-    ?>
+    
     <script type="text/javascript">
         $(document).ready(function() {
             $("#sidebar").mCustomScrollbar({

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
+<?php 
+require_once 'conexion/conexion.php';
+require_once 'login/conexion.php';
 
+?>
 <head>
     <title>Login</title>
 
     <?php
-    require_once 'temples/head.php';
+    require_once 'templates/head.php';
     ?>
     <?php
-    require_once 'temples/script.php';
+    require_once 'templates/script.php';
     ?>
 </head>
 
@@ -21,15 +25,16 @@
                 <div class="panel panel-primary">
                     <div class="panel panel-heading">Login facultad autodidacta</div>
                     <div class="panel panel-body">
-                        <div style="text-align: center;">
-                        </div>
                         <p></p>
+                        <form action="login/login.php" method="POST">
                         <label>Usuario</label>
-                        <input type="text" id="usuario" class="form-control input-sm" name="">
+                        <input type="text" id="usuario" class="form-control input-sm" name="usuario">
                         <label>Password</label>
-                        <input type="password" id="password" class="form-control input-sm" name="">
+                        <input type="password" id="password" class="form-control input-sm" name="password">
                         <p></p>
-                        <span class="btn btn-primary" id="entrarSistema">Entrar</span>
+                        <input type="submit" class="btn btn-primary" id="entrarSistema" value="Entar" name="Entrar">
+                        </form>
+                        
                         <a href="registro.php" class="btn btn-danger">Registro</a>
                     </div>
                 </div>
@@ -51,22 +56,6 @@
                 alertify.alert("Debes agregar el password");
                 return false;
             }
-
-            cadena = "usuario=" + $('#usuario').val() +
-                "&password=" + $('#password').val();
-
-            $.ajax({
-                type: "POST",
-                url: "login/login.php",
-                data: cadena,
-                success: function(r) {
-                    if (r == 1) {
-                        window.location = "Admin/index.php";
-                    } else {
-                        alertify.alert("Fallo al entrar :(");
-                    }
-                }
-            });
         });
     });
 </script>
