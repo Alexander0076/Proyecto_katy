@@ -1,4 +1,6 @@
 <?php
+
+require_once 'conexion/conexion.php';
 if (isset($_POST['agregar'])) {
     if (isset($_SESSION['add_carro'])) {
         $item_array_id_cart = array_column($_SESSION['add_carro'], 'item_id');
@@ -9,7 +11,7 @@ if (isset($_POST['agregar'])) {
                 'item_id'        => $_GET['id'],
                 'item_nombre'    => $_POST['hidden_nombre'],
                 'item_precio'    => $_POST['hidden_precio'],
-                'item_cantidad'  => $_POST['cantidad'],
+                'item_afiliado'  => $_POST['hidden_afiliado'],
             );
 
             $_SESSION['add_carro'][$count] = $item_array;
@@ -21,7 +23,7 @@ if (isset($_POST['agregar'])) {
             'item_id'        => $_GET['id'],
             'item_nombre'    => $_POST['hidden_nombre'],
             'item_precio'    => $_POST['hidden_precio'],
-            'item_cantidad'  => $_POST['cantidad'],
+            'item_afiliado'  => $_POST['afiliado'],
         );
 
         $_SESSION['add_carro'][0] = $item_array;
@@ -33,7 +35,7 @@ if (isset($_GET['action'])) {
             if ($value['item_id'] == $_GET['id']) {
                 unset($_SESSION['add_carro'][$key]);
                 echo '<script>alert("El producto fue eliminado del carrito!");</script>';
-                echo '<script>window.location="index.php";</script>';
+                echo '<script>window.location="carrito.php";</script>';
             }
         }
     }
@@ -59,10 +61,10 @@ if (isset($_GET['action'])) {
                 <a class="nav-link" href="carrito.php"><i class="fas fa-shopping-cart"></i> Carrito</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.php">About Us</a>
+                <a class="nav-link" href="about.php">Acerca de nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.php">Contact Us</a>
+                <a class="nav-link" href="contact.php">Contacto</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../Index.php">Cerrar Sesión</a>

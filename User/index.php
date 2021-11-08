@@ -1,249 +1,134 @@
-<?php 
-	session_start();
-    require_once 'conexion/conexion.php';
-	if(isset($_SESSION['user'])){
- ?>
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
 <?php
-require_once 'templates/head.php'
+session_start();
+require_once 'conexion/conexion.php';
+if (isset($_SESSION['user'])) {
 ?>
+    <!DOCTYPE html>
+    <html lang="en">
 
-  </head>
+    <head>
+        <?php
+        require_once 'templates/head.php'
+        ?>
 
-  <body>
+    </head>
 
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
+    <body>
+
+        <!-- ***** Preloader Start ***** -->
+        <div id="preloader">
+            <div class="jumper">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
+        <!-- ***** Preloader End ***** -->
 
-    <!-- Header -->
-    <header class="">
-    <?php
-require_once 'templates/header.php'
-?>
-    </header>
+        <!-- Header -->
+        <header class="">
+            <?php
+            require_once 'templates/header.php'
+            ?>
+        </header>
 
-    <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    <div class="banner header-text">
-      <div class="owl-banner owl-carousel">
-        <div class="banner-item-01">
-          <div class="text-content">
-            <h4>Best Offer</h4>
-            <h2>New Arrivals On Sale</h2>
-          </div>
-        </div>
-        <div class="banner-item-02">
-          <div class="text-content">
-            <h4>Flash Deals</h4>
-            <h2>Get your best products</h2>
-          </div>
-        </div>
-        <div class="banner-item-03">
-          <div class="text-content">
-            <h4>Last Minute</h4>
-            <h2>Grab last minute deals</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Banner Ends Here -->
-
-    <div class="latest-products">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-heading">
-              <h2>Latest Products</h2>
-              <a href="products.html">view all products <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="#"><img src="assets/images/product_01.jpg" alt=""></a>
-              <div class="down-content">
-                <a href="#"><h4>Tittle goes here</h4></a>
-                <h6>$25.75</h6>
-                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-                <span>Reviews (24)</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="#"><img src="assets/images/product_02.jpg" alt=""></a>
-              <div class="down-content">
-                <a href="#"><h4>Tittle goes here</h4></a>
-                <h6>$30.25</h6>
-                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-                <span>Reviews (21)</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="#"><img src="assets/images/product_03.jpg" alt=""></a>
-              <div class="down-content">
-                <a href="#"><h4>Tittle goes here</h4></a>
-                <h6>$20.45</h6>
-                <p>Sixteen Clothing is free CSS template provided by TemplateMo.</p>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-                <span>Reviews (36)</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="#"><img src="assets/images/product_04.jpg" alt=""></a>
-              <div class="down-content">
-                <a href="#"><h4>Tittle goes here</h4></a>
-                <h6>$15.25</h6>
-                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-                <span>Reviews (48)</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="#"><img src="assets/images/product_05.jpg" alt=""></a>
-              <div class="down-content">
-                <a href="#"><h4>Tittle goes here</h4></a>
-                <h6>$12.50</h6>
-                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-                <span>Reviews (16)</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="#"><img src="assets/images/product_06.jpg" alt=""></a>
-              <div class="down-content">
-                <a href="#"><h4>Tittle goes here</h4></a>
-                <h6>$22.50</h6>
-                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-                <span>Reviews (32)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="best-features">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-heading">
-              <h2>About Sixteen Clothing</h2>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="left-content">
-              <h4>Looking for the best products?</h4>
-              <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This template</a> is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website. <a rel="nofollow" href="https://templatemo.com/contact">Contact us</a> for more info.</p>
-              <ul class="featured-list">
-                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                <li><a href="#">Consectetur an adipisicing elit</a></li>
-                <li><a href="#">It aquecorporis nulla aspernatur</a></li>
-                <li><a href="#">Corporis, omnis doloremque</a></li>
-                <li><a href="#">Non cum id reprehenderit</a></li>
-              </ul>
-              <a href="about.html" class="filled-button">Read More</a>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="right-image">
-              <img src="assets/images/feature-image.jpg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="call-to-action">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <div class="row">
-                <div class="col-md-8">
-                  <h4>Creative &amp; Unique <em>Sixteen</em> Products</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
+        <!-- Page Content -->
+        <div class="page-heading index-heading header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-content">
+                            <h1 style="color: white; font-size: 90px; text-transform: uppercase; font-weight: 900;margin-bottom: 15px">Bienvenido
+                        </h1>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                  <a href="#" class="filled-button">Purchase Now</a>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
+        <!-- Banner Ends Here -->
 
-    
-    
-<?php
-require_once 'templates/footer.php';
-?>
+        <div class="latest-products">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h2>Productos</h2>
+                            <a href="products.php">view all products <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
 
-  </body>
 
-</html>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="best-features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h2>Unete a la familia de Re-Star</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="left-content">
+                            <h4>Aplica</h4>
+                            <p>Si quieres ser parte de equipo de Re-Star, y tienes las aptitudes para poder buscar nuevos restaurantes que nececiten ayuda para impulsarse en mundo culinario y/o eres un experto brindando reseñas, ¡Que esperas!
+
+                                <a href="aplica.php" class="filled-button">Aplicar</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right-image">
+                            <img src="assets/images/feature-image.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php
+        $database = new Database();
+        $db = $database->connect();
+        $result2 = $db->prepare("SELECT * FROM afiliados");
+        $result2->execute();
+        
+        ?>
+
+        <div class="call-to-action">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="inner-content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>¡Afilia tu restaurante con nosotros!</h4>
+                                    <h4>Contamos con <em><?php echo $result2->rowCount()?></em> afiliados</h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="afiliate.php" class="filled-button">Afiliarse</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <?php
+        require_once 'templates/footer.php';
+        ?>
+
+    </body>
+
+    </html>
 
 
 <?php
 } else {
-	header("location:index.php");
-	}
- ?>
+    header("location:index.php");
+}
+?>

@@ -12,4 +12,4 @@ $conexion = mysqli_connect($servidor, $usuario, $password) or die("Error, no est
 //Seleccionar la base de datos a utilizar
 //Seleccionamos la base de datos con la cual queremos trabajar, como ya configuramos el nombre en la variable de arriba, solo colocamos la variable $basededatos, al igual que en la conexión de arriba utilizamos el or die en caso de tener un error
 $db = mysqli_select_db($conexion, $basededatos) or die("Error, no estas conectado a la base de datos");
-?>
+?> 

@@ -93,11 +93,13 @@ a.filled-button:hover {
 }
 
 .about-heading {
-	background-image: url(../images/about-heading.jpg);
+	background:black;
 }
-
+.index-heading {
+	background-image: url(../../img/FondoPrincipal.jpg);
+}
 .contact-heading {
-	background-image: url(../images/contact-heading.jpg);
+	background:black;
 }
 
 .page-heading {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <link rel="stylesheet" href="css/styleLogin.css">
 <?php 
 require_once 'conexion/conexion.php';
 require_once 'login/conexion.php';
@@ -16,28 +17,26 @@ require_once 'login/conexion.php';
     ?>
 </head>
 
-<body style="background-color: gray">
-    <br><br><br>
+<body>
+
     <div class="container">
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <div class="panel panel-primary">
-                    <div class="panel panel-heading">Login facultad autodidacta</div>
-                    <div class="panel panel-body">
-                        <p></p>
+                    <h2 class="head-form">Login</h2>
                         <form action="login/login.php" method="POST">
-                        <label>Usuario</label>
+                        <label ><i class="fa fa-user-circle"></i>  Usuario</label>
                         <input type="text" id="usuario" class="form-control input-sm" name="usuario">
-                        <label>Password</label>
+                        <label ><i class="fa fa-key"></i> Password</label>
                         <input type="password" id="password" class="form-control input-sm" name="password">
                         <p></p>
                         <input type="submit" class="btn btn-primary" id="entrarSistema" value="Entar" name="Entrar">
+                        <a href="registro.php" class="btn btn-danger">Registro</a>
                         </form>
                         
-                        <a href="registro.php" class="btn btn-danger">Registro</a>
-                    </div>
-                </div>
+                        
+                    
+                
             </div>
             <div class="col-sm-4"></div>
         </div>
@@ -45,7 +44,7 @@ require_once 'login/conexion.php';
 </body>
 
 </html>
-
+<script src="js/login.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#entrarSistema').click(function() {

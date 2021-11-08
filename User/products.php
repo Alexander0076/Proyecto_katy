@@ -51,7 +51,7 @@ if (isset($_SESSION['user'])) {
         </div>
       </div>
     </div>
-
+    <div style="clear:both"></div>
 
     <div class="products">
       <div class="container">
@@ -85,7 +85,8 @@ if (isset($_SESSION['user'])) {
                       <h6>$<?php echo $newdato->Precio?></h6>
                       <input type="hidden" name="hidden_nombre" value="<?php echo  $newdato->Nombre; ?>" />
                       <input type="hidden" name="hidden_precio" value="<?php echo $newdato->Precio; ?>" />
-                      <input class="btn" type="submit" value="ADD" name="'agregar" id="agregar" >
+                      <input type="hidden" name="hidden_afiliado" value="<?php echo $newdato->Nombre_Empresa?>">
+                      <input class="btn" type="submit" value="ADD" name="agregar" id="agregar" >
                     </div>
                   </div>
                   </form>
