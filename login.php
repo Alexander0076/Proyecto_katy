@@ -24,7 +24,7 @@ require_once 'login/conexion.php';
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                     <h2 class="head-form">Login</h2>
-                        <form action="login/login.php" method="POST">
+                        <form action="" method="GET">
                         <label ><i class="fa fa-user-circle"></i>  Usuario</label>
                         <input type="text" id="usuario" class="form-control input-sm" name="usuario">
                         <label ><i class="fa fa-key"></i> Password</label>

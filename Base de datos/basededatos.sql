@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2021 a las 03:54:39
--- Versión del servidor: 10.4.16-MariaDB
--- Versión de PHP: 7.4.12
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 08-11-2021 a las 05:42:15
+-- Versión del servidor: 5.7.31
+-- Versión de PHP: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,14 +27,25 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `afiliados`
 --
 
-CREATE TABLE `afiliados` (
-  `Id_afiliados` int(11) NOT NULL,
+DROP TABLE IF EXISTS `afiliados`;
+CREATE TABLE IF NOT EXISTS `afiliados` (
+  `Id_afiliados` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre_Empresa` varchar(100) NOT NULL,
   `Usuario` varchar(100) NOT NULL,
   `Password` varchar(50) NOT NULL,
-  `Dirección` varchar(200) NOT NULL,
-  `Contacto` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Direccion` varchar(200) NOT NULL,
+  `Contacto` varchar(15) NOT NULL,
+  PRIMARY KEY (`Id_afiliados`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `afiliados`
+--
+
+INSERT INTO `afiliados` (`Id_afiliados`, `Nombre_Empresa`, `Usuario`, `Password`, `Direccion`, `Contacto`) VALUES
+(1, 'Pollo Campero', 'pollo.campero', 'campero', 'PQ3M+RXC, San Salvador', '22736000'),
+(2, 'Wendys', 'wendys.sv ', '123', 'Centro Comercial Metrocentro, Food Court, 8a Etapa, 3er Nivel, San Salvador', '2121 2222'),
+(3, 'Pizza Hut', 'pizza.hut', '1234', 'Alameda Roosevelt, Centro Comercial Granada S.S RBD SALVADOR MUNDO', '2257 7777');
 
 -- --------------------------------------------------------
 
@@ -42,13 +53,17 @@ CREATE TABLE `afiliados` (
 -- Estructura de tabla para la tabla `pedidos`
 --
 
-CREATE TABLE `pedidos` (
-  `Id_pedidos` int(11) NOT NULL,
+DROP TABLE IF EXISTS `pedidos`;
+CREATE TABLE IF NOT EXISTS `pedidos` (
+  `Id_pedidos` int(11) NOT NULL AUTO_INCREMENT,
   `Id_producto` int(5) NOT NULL,
   `Id_usuario` int(5) NOT NULL,
   `Numero_de_trarjeta` int(50) NOT NULL,
-  `Fecha_hora` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `Codigo_de_seguridad` varchar(3) NOT NULL
+  `Fecha_hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Codigo_de_seguridad` varchar(3) NOT NULL,
+  PRIMARY KEY (`Id_pedidos`),
+  KEY `Id_producto` (`Id_producto`),
+  KEY `Id_usuario` (`Id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -57,13 +72,26 @@ CREATE TABLE `pedidos` (
 -- Estructura de tabla para la tabla `productos`
 --
 
-CREATE TABLE `productos` (
-  `Id_producto` int(11) NOT NULL,
+DROP TABLE IF EXISTS `productos`;
+CREATE TABLE IF NOT EXISTS `productos` (
+  `Id_producto` int(11) NOT NULL AUTO_INCREMENT,
   `Id_afiliado` int(11) NOT NULL,
   `Img` varchar(500) NOT NULL,
   `Nombre` varchar(100) NOT NULL,
-  `Precio` decimal(11,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Precio` decimal(11,2) NOT NULL,
+  PRIMARY KEY (`Id_producto`),
+  KEY `Id_afiliado` (`Id_afiliado`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`Id_producto`, `Id_afiliado`, `Img`, `Nombre`, `Precio`) VALUES
+(1, 1, 'Banquete_de_20_Camperitos_o_Alitas.png', 'Banquete de 20 Camperitos o Alitas', '14.95'),
+(2, 2, 'Coca_Cola.jpg', 'Coca Cola', '0.65'),
+(3, 1, 'pepsi.jpeg', 'Pepsi', '0.55'),
+(4, 3, 'Pizza_hut.jfif', 'Pizza hut', '14.99');
 
 -- --------------------------------------------------------
 
@@ -71,14 +99,16 @@ CREATE TABLE `productos` (
 -- Estructura de tabla para la tabla `solicitudempleo`
 --
 
-CREATE TABLE `solicitudempleo` (
-  `Id_solicitud` int(11) NOT NULL,
+DROP TABLE IF EXISTS `solicitudempleo`;
+CREATE TABLE IF NOT EXISTS `solicitudempleo` (
+  `Id_solicitud` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(100) NOT NULL,
   `Contacto` varchar(40) NOT NULL,
   `Correo` varchar(200) NOT NULL,
-  `Dirección` varchar(200) NOT NULL,
-  `FechaNac` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Direccion` varchar(200) NOT NULL,
+  `FechaNac` date NOT NULL,
+  PRIMARY KEY (`Id_solicitud`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -86,83 +116,21 @@ CREATE TABLE `solicitudempleo` (
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `Id_usuario` int(11) NOT NULL,
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `Id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(100) NOT NULL,
   `Password` varchar(20) NOT NULL,
-  `Correo` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Correo` varchar(200) NOT NULL,
+  PRIMARY KEY (`Id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tablas volcadas
+-- Volcado de datos para la tabla `usuarios`
 --
 
---
--- Indices de la tabla `afiliados`
---
-ALTER TABLE `afiliados`
-  ADD PRIMARY KEY (`Id_afiliados`);
-
---
--- Indices de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`Id_pedidos`),
-  ADD KEY `Id_producto` (`Id_producto`),
-  ADD KEY `Id_usuario` (`Id_usuario`);
-
---
--- Indices de la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`Id_producto`),
-  ADD KEY `Id_afiliado` (`Id_afiliado`);
-
---
--- Indices de la tabla `solicitudempleo`
---
-ALTER TABLE `solicitudempleo`
-  ADD PRIMARY KEY (`Id_solicitud`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`Id_usuario`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `afiliados`
---
-ALTER TABLE `afiliados`
-  MODIFY `Id_afiliados` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  MODIFY `Id_pedidos` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `productos`
---
-ALTER TABLE `productos`
-  MODIFY `Id_producto` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `solicitudempleo`
---
-ALTER TABLE `solicitudempleo`
-  MODIFY `Id_solicitud` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `Id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+INSERT INTO `usuarios` (`Id_usuario`, `Nombre`, `Password`, `Correo`) VALUES
+(1, 'SuperUsuario', 'admin', 'admin');
 
 --
 -- Restricciones para tablas volcadas
