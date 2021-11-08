@@ -73,6 +73,7 @@ if (isset($_SESSION['user'])) {
                  foreach ($results1 as $newdato) {
                    ?>
                 <div class="col-lg-4 col-md-4 all des">
+                <form method="post" action="carrito.php?action=add&id=<?php echo $newdato->Id_producto; ?>">
                   <div class="product-item">
                     <a href="#"><img src="../images/<?php echo $newdato->Img?>" alt=""></a>
                     <div class="down-content">
@@ -80,14 +81,14 @@ if (isset($_SESSION['user'])) {
                       <a href="#">
                         <h4><?php echo $newdato->Nombre?> </h4>
                       </a>
-                      <a href="#">
                       <span>Afiliado / <?php echo $newdato->Nombre_Empresa?></span>
-                      </a>
-                      
                       <h6>$<?php echo $newdato->Precio?></h6>
-                      <input type="submit" value="ADD" name="" >
+                      <input type="hidden" name="hidden_nombre" value="<?php echo  $newdato->Nombre; ?>" />
+                      <input type="hidden" name="hidden_precio" value="<?php echo $newdato->Precio; ?>" />
+                      <input class="btn" type="submit" value="ADD" name="'agregar" id="agregar" >
                     </div>
                   </div>
+                  </form>
                 </div>
                 <?php
                  }
